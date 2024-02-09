@@ -1,4 +1,4 @@
-# telegraf-media-group
+# telegraf-media-albums
 
 Handle media groups (aka albums) easily with [telegraf](https://telegraf.js.org)!
 
