@@ -2,10 +2,10 @@ const { Composer } = require("telegraf")
 
 const map = new Map()
 
-module.exports = (timeout = 100) =>
+module.exports = ({ timeout = 100, mediaTypes = ["photo", "video"] } = {}) =>
   Composer.on(
     Composer.drop((ctx) => {
-      return !Object.keys(ctx).some((val) => ["photo", "video"].includes(val))
+      return !Object.keys(ctx).some((val) => mediaTypes.includes(val))
     }),
     async (ctx, next) => {
       const message = ctx.message || ctx.channelPost
