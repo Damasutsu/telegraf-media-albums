@@ -37,10 +37,8 @@ module.exports = ({ timeout = 100, mediaTypes = ["photo", "video"] } = {}) =>
             .slice()
             .sort((a, b) => a.message_id - b.message_id)
           if ("updateSubTypes" in ctx) {
-            // for telegraf v3
             ctx.updateSubTypes.push("media_group")
           } else {
-            // for telegraf v4
             ctx.media_group = ctx.update.media_group = ctx.update
           }
           userMap.delete(message.media_group_id)
